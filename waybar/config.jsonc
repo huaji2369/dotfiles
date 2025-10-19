@@ -1,0 +1,258 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 1,
+    "margin": 0,
+    "modules-left": [
+        "group/hardware",
+      //"custom/hardware-wrap",
+      //"power-profiles-daemon",
+      //"cpu",
+      //"memory",
+      //"temperature",
+      //"disk",
+      
+        "niri/workspaces",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "niri/window"
+    ],
+    "modules-right": [
+        "group/info",
+      //"wireplumber#sink",
+      //"backlight",
+      //"network",
+      //"battery",
+
+        "clock",
+        "group/session",
+      //"custom/lock",
+      //"custom/reboot",
+      //"custom/power",
+
+        "tray"
+    ],
+//modules-left:
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+        	  "transition-duration": 500,
+        	  "transition-left-to-right": true
+        },
+        "modules": [
+        	"custom/hardware-wrap",
+            "power-profiles-daemon",
+        	"cpu",
+        	"memory",
+        	"temperature",
+            "disk"
+        ]
+    },
+    /*modules-group-hardware*/
+    "custom/hardware-wrap": {
+    	  "format": "",
+    	  "tooltip-format": "application selector",
+          "on-click": "fuzzel"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "cpu": {
+        "format": "󰘚 {usage}%",
+        "tooltip": true,
+        "interval": 1,
+        "on-click": "alacritty -e sudo btop"
+    },
+    "memory": {
+        "format": "󰍛 {}%",
+        "interval": 1,
+        "on-click": "alacritty -e sudo btop"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "󱃃",
+            "󰔏",
+            "󱃂"
+        ],
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+    },
+    /*end modules-group-hardware*/
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition",
+            "osu!": "osu!"
+        }
+    },
+
+//modules-center:
+    "niri/window": {
+    	"format": "<span color='#FFFFFF'>{title}</span>",
+    },
+
+//modules-right
+    "group/info": {
+    "orientation": "horizontal",
+    "drawer": {
+    	  "transition-duration": 500,
+    	  "transition-left-to-right": false
+    },
+    "modules": [
+        "wireplumber#sink",
+        "backlight",
+        "network",
+        "battery"
+    ]
+    },
+    /*modules-group-info*/
+    "wireplumber#sink": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Mute",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pwvucontrol",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%-",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%-"
+    },
+    "network": {
+        "format-wifi": "󰖩 {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}\n↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
+        "on-click-right": "alacritty -e nmtui"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    /*end modules-group-info*/
+    "clock": {
+        "interval": 1,
+        "format": "󰥔 {:%H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small><span font='WenQuanYi Zen Hei Mono'>{calendar}</span></small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#d3c6aa'><b>{}</b></span>",
+                "days": "<span color='#e67e80'>{}</span>",
+                "weeks": "<span color='#a7c080'><b>W{}</b></span>",
+                "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+                "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "group/session": {
+        "orientation": "horizontal",
+        "drawer": {
+        	  "transition-duration": 500,
+        	  "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/lock",
+            "custom/reboot",
+            "custom/power"
+        ]
+    },
+    /*modules-group-session*/
+    "custom/lock": {
+        "format": "<span color='#00FFFF'>  </span>",
+        "on-click": "swaylock -c 000000",
+        "tooltip": true,
+        "tooltip-format": "Lock screen"
+    },
+    "custom/reboot": {
+        "format": "<span color='#FFD700'>  </span>",
+        "on-click": "systemctl reboot",
+        "tooltip": true,
+        "tooltip-format": "Reboot"
+    },
+    "custom/power": {
+        "format": "<span color='#FF4040'>  </span>",
+        "on-click": "systemctl poweroff",
+        "tooltip": true,
+        "tooltip-format": "Power Off"
+    },
+    /*end modules-group-session*/
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
+}
