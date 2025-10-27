@@ -1,8 +1,4 @@
 [general]
-import=[
-    
-]
-
 
 [font]
 size=12.0
@@ -28,11 +24,19 @@ opacity=0.9
 blur=true
 
 [window.padding]
-x=8
-y=8
+x=0
+y=0
 
 [selection]
 save_to_clipboard=true
+
+[cursor.style]
+shape="underline"
+blinking="always"
+
+[cursor.vi_mode_style]
+shape="underline"
+blinking="always"
 
 [colors.primary]
 foreground="#ffffff"
@@ -47,14 +51,3 @@ blue=   "#0000ff"
 magenta="#ff00ff"
 cyan=   "#00ffff"
 white=  "#ffffff"
-
-[colors.dim]
-black=  "#000000"
-red=    "#800000"
-green=  "#008000"
-yellow= "#808000"
-blue=   "#000080"
-magenta="#800080"
-cyan=   "#008080"
-white=  "#808080"
-
