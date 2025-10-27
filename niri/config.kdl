@@ -31,7 +31,7 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        // off
+        off
         tap
         // dwt
         // dwtp
@@ -387,7 +387,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D cooldown-ms=300 {spawn "fuzzel";}
     Mod+B hotkey-overlay-title="Run Browser: firefox" { spawn "firefox"; }
-    Mod+E hotkey-overlay-title="Run File manager: PCManFM" { spawn "pcmanfm"; }
+    Mod+E hotkey-overlay-title="Run File manager: Nautilus" { spawn "nautilus"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     //Add emote picker shortcut
     Ctrl+Alt+E {spawn "emote";}
