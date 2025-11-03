@@ -272,11 +272,12 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // signed as systemd service thus not needed
 // spawn-at-startup "waybar"
+spawn-at-startup "/usr/bin/prime-offload"
 spawn-at-startup "fcitx5"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "udiskie"
-spawn-at-startup "optimus-manager-qt"
 
+spawn-sh-at-startup "mount --bind /home/huaji2369/waydroid_share /home/huaji2369/.local/share/waydroid/data/media/0/waydroid_share"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -285,16 +286,8 @@ hotkey-overlay {
     skip-at-startup
 }
 
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
 
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/图片/屏幕截图 %Y年%m月%d日 %H:%M:%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
@@ -304,26 +297,15 @@ screenshot-path "~/图片/屏幕截图 %Y年%m月%d日 %H:%M:%S.png"
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    horizontal-view-movement {
+        spring damping-ratio=0.8 stiffness=800 epsilon=0.00001
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -334,18 +316,7 @@ window-rule {
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
+// Open QQ main window as floating by default, but not other QQ windows.
 window-rule {
     match app-id="QQ"
     exclude title="QQ"
@@ -353,16 +324,19 @@ window-rule {
     default-column-width {}
 }
 
+// Set Alacritty terminal windows to use half the screen width by default.
 window-rule {
     match app-id="Alacritty"
     default-column-width { proportion 0.5; }
 }
 
+// Open VSCode maximized by default.
 window-rule {
     match app-id="code-oss"
     open-maximized true
 }
 
+// Open osu! in fullscreen by default.
 window-rule {
     match app-id="osu!"
     open-fullscreen true
@@ -407,8 +381,8 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+2%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "2%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -447,14 +421,14 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+  //Mod+Shift+Left  { focus-monitor-left; }
+  //Mod+Shift+Down  { focus-monitor-down; }
+  //Mod+Shift+Up    { focus-monitor-up; }
+  //Mod+Shift+Right { focus-monitor-right; }
+  //Mod+Shift+H     { focus-monitor-left; }
+  //Mod+Shift+J     { focus-monitor-down; }
+  //Mod+Shift+K     { focus-monitor-up; }
+  //Mod+Shift+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
