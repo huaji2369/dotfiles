@@ -31,7 +31,7 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        off
+        // off
         tap
         // dwt
         // dwtp
@@ -41,7 +41,7 @@ input {
         // accel-speed 0.2
         accel-profile "flat"
         // scroll-method "two-finger"
-        // disabled-on-external-mouse
+        disabled-on-external-mouse
     }
 
     mouse {
@@ -363,6 +363,7 @@ binds {
     Mod+B hotkey-overlay-title="Run Browser: firefox" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="Run File manager: Nautilus" { spawn "nautilus"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+M { spawn "alacritty" "-e" "sudo" "btop"; }
     //Add emote picker shortcut
     Ctrl+Alt+E {spawn "emote";}
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
