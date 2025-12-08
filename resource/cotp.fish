@@ -20,11 +20,21 @@ if test $status -ne 0
     exit 1
 end
 
+#set -l cotp_apps
+
 for apps in $cotp_output[2..]
-    set cotp_apps $cotp_apps (echo $apps | awk '{print $1". "$2" - "$3}')
+    set -l apps (string trim -- "$apps")
+    if test -n "$apps"
+        set cotp_apps $cotp_apps (echo $apps | awk '{print $1". "$2" - "$3}')
+    end
 end
 
-set -l selected_index (echo $cotp_apps\n |
+if test (count $cotp_apps) -eq 0
+    notify-send -u critical "COTP" "No applications found in database"
+    exit 1
+end
+
+set -l selected_index (printf '%s\n' $cotp_apps |
     fuzzel \
     --dmenu \
     --config ~/.config/fuzzel/fuzzel.ini \
@@ -38,5 +48,9 @@ if test -z "$selected_index"
     exit 1
 end
 
-echo "$cotp_password" | cotp --password-stdin extract --index "$selected_index" | wl-copy
+echo "$cotp_password" |\
+cotp --password-stdin extract --index "$selected_index" |\
+tr -d '\n' |\
+wl-copy
+
 notify-send "COTP" "OTP copied to clipboard"
