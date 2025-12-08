@@ -3,7 +3,6 @@
 set -l cotp_password (
     fuzzel \
     --dmenu \
-    --config ~/.config/fuzzel/fuzzel.ini \
     --mesg "Enter cotp password" \
     --prompt-only "Password:" \
     --password
@@ -34,13 +33,18 @@ if test (count $cotp_apps) -eq 0
     exit 1
 end
 
+set -l display_lines_count (count $cotp_apps)
+if test $display_lines_count -gt 10
+    set display_lines_count 10
+end
+
 set -l selected_index (printf '%s\n' $cotp_apps |
     fuzzel \
     --dmenu \
-    --config ~/.config/fuzzel/fuzzel.ini \
     --mesg "Select application" \
     --prompt "App:" \
     --width 40 \
+    --lines $display_lines_count \
     --index
 )
 
