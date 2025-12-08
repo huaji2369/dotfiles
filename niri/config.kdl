@@ -369,6 +369,8 @@ binds {
     
     //Add emote picker shortcut
     Ctrl+Alt+E {spawn "emote";}
+    // Add cotp shortcut
+    Ctrl+Alt+O {spawn-sh "fish ~/.config/resource/cotp.fish";}
     
     Mod+S { spawn "scrcpy"; }
 
