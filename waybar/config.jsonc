@@ -54,7 +54,7 @@
     "custom/hardware-wrap": {
     	  "format": "",
     	  "tooltip-format": "application selector",
-          "on-click": "fuzzel"
+          "on-click": "fuzzel --placeholder '搜索应用'"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
@@ -71,12 +71,12 @@
         "format": "󰘚 {usage}%",
         "tooltip": true,
         "interval": 1,
-        "on-click": "alacritty -e sudo btop"
+        "on-click": "kitty sudo btop"
     },
     "memory": {
         "format": "󰍛 {}%",
         "interval": 1,
-        "on-click": "alacritty -e sudo btop"
+        "on-click": "kitty sudo btop"
     },
     "temperature": {
         "critical-threshold": 80,
@@ -107,9 +107,6 @@
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close",
-        "ignore-list": [
-            "Alacritty"
-        ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition",
             "osu!": "osu!"
@@ -166,7 +163,7 @@
         "format-disconnected": "󰖪 Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}\n↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
-        "on-click-right": "alacritty -e nmtui"
+        "on-click-right": "kitty nmtui"
     },
     "battery": {
         "states": {

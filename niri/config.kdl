@@ -324,9 +324,9 @@ window-rule {
     default-column-width {}
 }
 
-// Set Alacritty terminal windows to use half the screen width by default.
+// Set Kitty terminal windows to use half the screen width by default.
 window-rule {
-    match app-id="Alacritty"
+    match app-id="kitty"
     default-column-width { proportion 0.5; }
 }
 
@@ -358,21 +358,21 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D cooldown-ms=300 {spawn "fuzzel" "--placeholder" "搜索应用";}
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+D cooldown-ms=300 hotkey-overlay-title="Open Application selector: fuzzel" {spawn "fuzzel" "--placeholder" "搜索应用";}
     Mod+B hotkey-overlay-title="Run Browser: firefox" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="Run File manager: Nautilus" { spawn "nautilus"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
     // Add btop shortcut
-    Mod+M { spawn "alacritty" "-e" "sudo" "btop"; }
+    Mod+M hotkey-overlay-title="Open Task manager: btop"{ spawn "kitty" "sudo" "btop"; }
     
     //Add emote picker shortcut
     Ctrl+Alt+E {spawn "emote";}
     // Add cotp shortcut
     Ctrl+Alt+O {spawn-sh "fish ~/.config/resource/cotp.fish";}
     
-    Mod+S { spawn "scrcpy"; }
+    Mod+S hotkey-overlay-title="Screen cast with Scrcpy" { spawn "scrcpy"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
