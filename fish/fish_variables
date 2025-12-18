@@ -4,5 +4,6 @@ SETUVAR CHROOT:/home/huaji2369/chroot/
 SETUVAR --export EDITOR:nvim
 SETUVAR --path PATH:/home/huaji2369/Appimages/
 SETUVAR __fish_initialized:4300
+SETUVAR __fish_webconfig_theme_notification:set\x2dtheme\x2dv1\x2d\x234
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_greeting:
