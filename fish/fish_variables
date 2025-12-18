@@ -1,0 +1,8 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR CHROOT:/home/huaji2369/chroot/
+SETUVAR --export EDITOR:nvim
+SETUVAR --path PATH:/home/huaji2369/Appimages/
+SETUVAR __fish_initialized:4300
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR fish_greeting:
