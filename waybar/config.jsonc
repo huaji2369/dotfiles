@@ -6,13 +6,12 @@
     "margin": 0,
     "modules-left": [
         "group/hardware",
-      //"custom/hardware-wrap",
-      //"power-profiles-daemon",
-      //"cpu",
-      //"memory",
-      //"temperature",
-      //"disk",
-      
+        //->"custom/hardware-wrap",
+        //->"power-profiles-daemon",
+        //->"cpu",
+        //->"memory",
+        //->"temperature",
+        //->"disk",
         "niri/workspaces",
         "wlr/taskbar"
     ],
@@ -21,17 +20,15 @@
     ],
     "modules-right": [
         "group/info",
-      //"wireplumber#sink",
-      //"backlight",
-      //"network",
-      //"battery",
-
+        //->"wireplumber#sink",
+        //->"backlight",
+        //->"network",
+        //->"battery",
         "clock",
         "group/session",
-      //"custom/lock",
-      //"custom/reboot",
-      //"custom/power",
-
+        //->"custom/lock",
+        //->"custom/reboot",
+        //->"custom/power",
         "tray"
     ],
 //modules-left:
@@ -50,7 +47,7 @@
             "disk"
         ]
     },
-    /*modules-group-hardware*/
+    /*group/hardware*/
     "custom/hardware-wrap": {
     	  "format": "",
     	  "tooltip-format": "application selector",
@@ -92,7 +89,7 @@
         "format": "󰋊 {percentage_used}%",
         "path": "/",
     },
-    /*end modules-group-hardware*/
+    /*end group/hardware*/
 
     "niri/workspaces": {
         "format": "{icon}",
@@ -118,7 +115,7 @@
     	"format": "<span color='#FFFFFF'>{title}</span>",
     },
 
-//modules-right
+//modules-right:
     "group/info": {
     "orientation": "horizontal",
     "drawer": {
@@ -132,7 +129,7 @@
         "battery"
     ]
     },
-    /*modules-group-info*/
+    /*group/info*/
     "wireplumber#sink": {
         "format": "{icon} {volume}%",
         "format-muted": " Mute",
@@ -189,7 +186,7 @@
             "󰁹"
         ]
     },
-    /*end modules-group-info*/
+    /*end group/info*/
     "clock": {
         "interval": 1,
         "format": "󰥔 {:%H:%M:%S}",
@@ -228,7 +225,7 @@
             "custom/power"
         ]
     },
-    /*modules-group-session*/
+    /*group/session*/
     "custom/lock": {
         "format": "<span color='#00FFFF'>  </span>",
         "on-click": "swaylock -c 000000",
@@ -247,9 +244,9 @@
         "tooltip": true,
         "tooltip-format": "Power Off"
     },
-    /*end modules-group-session*/
+    /*end group/session*/
     "tray": {
         "icon-size": 16,
         "spacing": 5
-    },
+    }
 }
