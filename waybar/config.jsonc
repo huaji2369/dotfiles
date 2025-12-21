@@ -7,10 +7,8 @@
     "modules-left": [
         "group/hardware",
         //->"custom/hardware-wrap",
-        //->"power-profiles-daemon",
         //->"cpu",
         //->"memory",
-        //->"temperature",
         //->"disk",
         "niri/workspaces",
         "wlr/taskbar"
@@ -29,7 +27,9 @@
         //->"custom/lock",
         //->"custom/reboot",
         //->"custom/power",
-        "tray"
+        "group/tray-drawer"
+        //->"custom/placeholder-tray",
+        //->"tray"
     ],
 //modules-left:
     "group/hardware": {
@@ -43,7 +43,6 @@
             "power-profiles-daemon",
         	"cpu",
         	"memory",
-        	"temperature",
             "disk"
         ]
     },
@@ -52,17 +51,6 @@
     	  "format": "",
     	  "tooltip-format": "application selector",
           "on-click": "fuzzel --placeholder '搜索应用'"
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
     },
     "cpu": {
         "format": "󰘚 {usage}%",
@@ -75,27 +63,17 @@
         "interval": 1,
         "on-click": "kitty sudo btop"
     },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "󱃃",
-            "󰔏",
-            "󱃂"
-        ],
-    },
     "disk": {
         "interval": 30,
         "format": "󰋊 {percentage_used}%",
-        "path": "/",
+        "path": "/home"
     },
     /*end group/hardware*/
-
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "active": "",
-            "default": ""
+            "active": "󰝥",
+            "default": "󰝦"
         }
     },
     "wlr/taskbar": {
@@ -105,7 +83,6 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition",
             "osu!": "osu!"
         }
     },
@@ -113,6 +90,7 @@
 //modules-center:
     "niri/window": {
     	"format": "<span color='#FFFFFF'>{title}</span>",
+        "tooltip": false
     },
 
 //modules-right:
@@ -132,7 +110,7 @@
     /*group/info*/
     "wireplumber#sink": {
         "format": "{icon} {volume}%",
-        "format-muted": " Mute",
+        "format-muted": "󰖁 Mute",
         "format-icons": [
             "",
             "",
@@ -144,6 +122,7 @@
         "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+"
     },
     "backlight": {
+        "tooltip": false,
         "format": "{icon} {percent}%",
         "format-icons": [
             "󰃞",
@@ -221,6 +200,7 @@
         },
         "modules": [
             "custom/lock",
+            "custom/logout",
             "custom/reboot",
             "custom/power"
         ]
@@ -232,8 +212,14 @@
         "tooltip": true,
         "tooltip-format": "Lock screen"
     },
+    "custom/logout": {
+        "format": "<span color='#FFFF00'>  </span>",
+        "on-click": "niri msg action quit",
+        "tooltip": true,
+        "tooltip-format": "Logout"
+    },
     "custom/reboot": {
-        "format": "<span color='#FFD700'>  </span>",
+        "format": "<span color='#00FF00'>  </span>",
         "on-click": "systemctl reboot",
         "tooltip": true,
         "tooltip-format": "Reboot"
@@ -245,8 +231,25 @@
         "tooltip-format": "Power Off"
     },
     /*end group/session*/
+    "group/tray-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+        	  "transition-duration": 500,
+        	  "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/placeholder-tray",
+            "tray"
+        ]
+    },
+    /*group/tray-drawer*/
+    "custom/placeholder-tray": {
+        "format": "󱊖",
+        "tooltip": false
+    },
     "tray": {
         "icon-size": 16,
         "spacing": 5
     }
+    /*end group/tray-drawer*/
 }
