@@ -17,6 +17,7 @@
         "niri/window"
     ],
     "modules-right": [
+        "group/mpd",
         "group/info",
         //->"wireplumber#sink",
         //->"backlight",
@@ -94,6 +95,49 @@
     },
 
 //modules-right:
+    "group/mpd": {
+        "orientation": "horizontal",
+        "drawer": {
+        	  "transition-duration": 500,
+        	  "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/mpd-wrap",
+            "custom/mpd-prev",
+            "mpd",
+            "custom/mpd-next"
+        ]
+    },
+    /*group/mpd*/
+    "custom/mpd-wrap": {
+        "format": "♫",
+        "tooltip-format": "Music Player Daemon",
+        "on-click": "euphonica"
+    },
+    "custom/mpd-prev": {
+        "format": "",
+        "tooltip-format": "Previous Track",
+        "on-click": "mpc prev"
+    },
+    "mpd": {
+        "server": "/run/user/1000/mpd/socket",
+        "format": "",
+        "format-paused": "",
+        "format-stopped": "",
+        "format-disconnected":"",
+        "tooltip-format": "{artist} - {title}\n({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "on-click": "mpc toggle",
+        "on-click-middle": "mpc stop",
+        "on-click-right": "euphonica",
+        "on-scroll-up": "mpc volume +5",
+        "on-scroll-down": "mpc volume -5"
+    },
+    "custom/mpd-next": {
+        "format": "",
+        "tooltip-format": "Next Track",
+        "on-click": "mpc next"
+    },
+    /*end group/mpd*/
     "group/info": {
     "orientation": "horizontal",
     "drawer": {

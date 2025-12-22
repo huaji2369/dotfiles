@@ -42,6 +42,8 @@
 @define-color quote-color @green;
 @define-color idle-inhibitor-color @foreground;
 @define-color idle-inhibitor-active-color @red;
+@define-color mpd-play-color @green;
+@define-color mpd-paused-color @yellow;
 
 * {
     /* Base styling for all modules */
@@ -64,6 +66,10 @@ window#waybar {
 #disk,
 
 /*modules-right*/
+#custom-mpd-wrap,
+#custom-mpd-prev,
+#mpd,
+#custom-mpd-next,
 #wireplumber,
 #backlight,
 #network,
@@ -240,3 +246,29 @@ window#waybar {
     border-bottom-color: @red;
 }
 
+#custom-mpd-wrap,
+#custom-mpd-prev,
+#custom-mpd-next {
+    color: @mpd-play-color;
+    border-bottom-color: @mpd-play-color;
+}
+
+#mpd.paused {
+    color: @mpd-paused-color;
+    border-bottom-color: @mpd-paused-color;
+}
+
+#mpd.stopped {
+    color: @foreground;
+    border-bottom-color: transparent;
+}
+
+#mpd.disconnected {
+    color: @red;
+    border-bottom-color: @red;
+}
+
+#mpd.playing {
+    color: @mpd-play-color;
+    border-bottom-color: @mpd-play-color;
+}
