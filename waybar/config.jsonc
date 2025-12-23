@@ -258,7 +258,7 @@
     },
     "custom/logout": {
         "format": "<span color='#FFFF00'>  </span>",
-        "on-click": "niri msg action quit",
+        "on-click": "niri msg action quit --skip-confirmation",
         "tooltip": true,
         "tooltip-format": "Logout"
     },
