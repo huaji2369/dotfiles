@@ -53,11 +53,6 @@ layout {
     border {off;}
 }
 
-spawn-at-startup "fcitx5"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "udiskie"
-spawn-sh-at-startup "mount --bind /home/huaji2369/waydroid_share /home/huaji2369/.local/share/waydroid/data/media/0/waydroid_share"
-
 hotkey-overlay {skip-at-startup;}
 
 prefer-no-csd
