@@ -65,36 +65,48 @@ animations {
     }
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
-// Open QQ main window as floating by default, but not other QQ windows.
 window-rule {
     match app-id="QQ"
-    exclude title="QQ"
+    exclude title="^QQ$"
     open-floating true
     default-column-width {}
 }
 
-// Set Kitty terminal windows to use half the screen width by default.
 window-rule {
     match app-id="kitty"
     default-column-width { proportion 0.5; }
 }
 
-// Open VSCode maximized by default.
 window-rule {
     match app-id="code-oss"
     open-maximized true
 }
 
-// Open osu! in fullscreen by default.
 window-rule {
     match app-id="osu!"
     open-fullscreen true
+}
+
+window-rule {
+    match app-id="wpsoffice"
+    match app-id="wps"
+    exclude title="WPS Office$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="wpsoffice" title="WPS Office$"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="scrcpy"
+    default-column-width { proportion 0.25; }
 }
 
 window-rule {
@@ -118,6 +130,7 @@ window-rule {
         inactive-color "#080"
     }
 }
+
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
