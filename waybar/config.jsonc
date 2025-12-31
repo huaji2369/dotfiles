@@ -157,7 +157,7 @@
             ""
         ],
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pwvucontrol",
+        "on-click-right": "flatpak run com.saivert.pwvucontrol",
         "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%-",
         "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+"
     },
