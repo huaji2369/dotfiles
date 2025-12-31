@@ -5,6 +5,8 @@ function fish_prompt
         set -l usercolor (set_color $fish_color_user)
     
         set -l delim \U25BA
+        # If we don't have unicode use a simpler delimiter
+        string match -qi "*.utf*" -- $LANG $LC_CTYPE $LC_ALL; or set delim ">"
     
         fish_is_root_user; and set delim "#"
     
