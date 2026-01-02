@@ -57,7 +57,7 @@ hotkey-overlay {skip-at-startup;}
 
 prefer-no-csd
 
-screenshot-path "~/图片/屏幕截图 %Y年%m月%d日 %H:%M:%S.png"
+screenshot-path "~/Pictures/屏幕截图 %Y年%m月%d日 %H:%M:%S.png"
 
 animations {
     horizontal-view-movement {
@@ -83,7 +83,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="code-oss"
+    match app-id="^code"
     open-maximized true
 }
 
