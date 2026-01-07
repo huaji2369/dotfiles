@@ -51,7 +51,7 @@
     "custom/hardware-wrap": {
     	  "format": "",
     	  "tooltip-format": "application selector",
-          "on-click": "fuzzel --placeholder '搜索应用'"
+          "on-click": "fuzzel --placeholder '搜索应用' --anchor top-left" 
     },
     "cpu": {
         "format": "󰘚 {usage}%",

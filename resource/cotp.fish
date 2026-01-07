@@ -19,8 +19,6 @@ if test $status -ne 0
     exit 1
 end
 
-#set -l cotp_apps
-
 for apps in $cotp_output[2..]
     set -l apps (string trim -- "$apps")
     if test -n "$apps"

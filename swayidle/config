@@ -1,0 +1,2 @@
+timeout 300 niri msg action power-off-monitor
+timeout 360 swaylock
