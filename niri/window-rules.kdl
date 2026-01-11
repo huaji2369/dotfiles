@@ -16,7 +16,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^code"
+    match app-id="cod(e|ium)"
     open-maximized true
 }
 

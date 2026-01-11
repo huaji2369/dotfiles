@@ -1,2 +1,2 @@
-timeout 300 niri msg action power-off-monitor
+timeout 300 'niri msg action power-off-monitors'
 timeout 360 swaylock
