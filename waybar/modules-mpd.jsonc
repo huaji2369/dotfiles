@@ -1,0 +1,41 @@
+{
+    "group/mpd": {
+        "orientation": "horizontal",
+        "drawer": {
+        	  "transition-duration": 500,
+        	  "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/mpd-wrap",
+            "custom/mpd-prev",
+            "mpd",
+            "custom/mpd-next"
+        ]
+    },
+    /*group/mpd*/
+    "custom/mpd-wrap": {
+        "format": "♫",
+        "tooltip-format": "Music Player Daemon",
+        "on-click": "euphonica"
+    },
+    "custom/mpd-prev": {
+        "format": "",
+        "tooltip-format": "Previous Track",
+        "on-click": "mpc prev"
+    },
+    "mpd": {
+        "server": "/run/user/1000/mpd/socket",
+        "format": "",
+        "format-paused": "",
+        "format-stopped": "",
+        "format-disconnected":"",
+        "tooltip-format": "{artist} - {title}\n({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "on-click": "mpc toggle"
+    },
+    "custom/mpd-next": {
+        "format": "",
+        "tooltip-format": "Next Track",
+        "on-click": "mpc next"
+    },
+    /*end group/mpd*/
+}

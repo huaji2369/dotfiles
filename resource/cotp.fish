@@ -40,7 +40,7 @@ set -l selected_index (printf '%s\n' $cotp_apps |
     fuzzel \
     --dmenu \
     --mesg "Select application" \
-    --prompt "App:" \
+    --hide-prompt \
     --width 40 \
     --lines $display_lines_count \
     --index
