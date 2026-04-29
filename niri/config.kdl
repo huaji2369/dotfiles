@@ -98,6 +98,7 @@ binds {
     Mod+E hotkey-overlay-title="Run File manager: yazi" { spawn "kitty" "yazi"; }
     Mod+M hotkey-overlay-title="Open Task manager: btop"{ spawn "kitty" "sudo" "btop"; }
     Mod+S hotkey-overlay-title="Screen cast with Scrcpy" { spawn "scrcpy"; }
+    Mod+A hotkey-overlay-title="Screen record with OBS studio" { spawn "obs"; }
     
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
