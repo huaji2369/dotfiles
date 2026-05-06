@@ -98,14 +98,13 @@ binds {
     Mod+E hotkey-overlay-title="Run File manager: yazi" { spawn "kitty" "yazi"; }
     Mod+M hotkey-overlay-title="Open Task manager: btop"{ spawn "kitty" "sudo" "btop"; }
     Mod+S hotkey-overlay-title="Screen cast with Scrcpy" { spawn "scrcpy"; }
-    Mod+A hotkey-overlay-title="Screen record with OBS studio" { spawn "obs"; }
+    Mod+A hotkey-overlay-title="Screen record with OBS studio" { spawn "env" "QT_QPA_PLATFORM=xcb" "obs"; }
     
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
     Ctrl+Alt+E {spawn "emote";}
     Ctrl+Alt+O {spawn-sh "fish ~/.config/resource/cotp.fish";}
     
-
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -136,22 +135,6 @@ binds {
     Mod+Ctrl+Page_Up    { move-column-to-workspace-up; }
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-
-    // vim style navigation
-    Mod+H       { focus-column-left; }
-    Mod+J       { focus-window-down; }
-    Mod+K       { focus-window-up; }
-    Mod+L       { focus-column-right; }
-    Mod+Ctrl+H  { move-column-left; }
-    Mod+Ctrl+J  { move-window-down; }
-    Mod+Ctrl+K  { move-window-up; }
-    Mod+Ctrl+L  { move-column-right; }
-    Mod+U       { focus-workspace-down; }
-    Mod+I       { focus-workspace-up; }
-    Mod+Ctrl+U  { move-column-to-workspace-down; }
-    Mod+Ctrl+I  { move-column-to-workspace-up; }
-    Mod+Shift+U { move-workspace-down; }
-    Mod+Shift+I { move-workspace-up; }
     
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
