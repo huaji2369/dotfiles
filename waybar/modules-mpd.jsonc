@@ -36,6 +36,5 @@
         "format": "",
         "tooltip-format": "Next Track",
         "on-click": "mpc next"
-    },
-    /*end group/mpd*/
+    }
 }

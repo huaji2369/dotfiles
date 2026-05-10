@@ -1,1 +1,1 @@
-set -gx CHROOT /home/huaji2369/chroot
+set -gx CHROOT /home/huaji2369/buildenv

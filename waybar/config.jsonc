@@ -124,7 +124,7 @@
             ""
         ],
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pwvucontrol",
+        "on-click-right": "kitty wiremix",
         "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%-",
         "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+"
     },
@@ -146,7 +146,7 @@
         "format-disconnected": "󰖪 Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}\n↑{bandwidthUpBytes} ↓{bandwidthDownBytes}",
-        "on-click-right": "kitty nmtui"
+        "on-click-right": "kitty impala"
     },
     "battery": {
         "states": {
@@ -176,7 +176,7 @@
     "clock": {
         "interval": 1,
         "format": "󰥔 {:%H:%M:%S}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small><span font='WenQuanYi Zen Hei Mono'>{calendar}</span></small></tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small><span font='Microsoft YaHei UI'>{calendar}</span></small></tt>",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
